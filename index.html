@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="Tarini Pabbareddy">
+  <title>Magic Eight Ball</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <h1>Magic Eight Ball</h1>
+  <p id="question"></p>
+  <p id="preminission"></p>
+  <script>
+    const preminissions = [
+      'The future is not certain.', 
+      'It is decidedly so.', 
+      'Not at this moment.', 
+      'Yes definitely.',
+      'Yes',
+      'No',
+      'It may never be.', 
+      'What is meant to be will be.'
+    ];
+    
+    let uQuestion = prompt("Ask the ball any yes or no question in your heart. Enter 'Stop' once your questions have been answered.");
+    
+    while (uQuestion.toLowerCase() !== 'stop') {
+      let randomPrem = Math.floor(Math.random() * preminissions.length);
+      document.getElementById("question").innerHTML = `Your question: ${uQuestion}`;
+      document.getElementById("preminission").innerHTML = `Magic Eight Ball says: ${preminissions[randomPrem]}`;
+      
+      uQuestion = prompt("Ask another question or enter 'Stop' to end.");
+    }
+  </script>
+</body>
+
+</html>
