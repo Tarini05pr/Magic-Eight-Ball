@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Tarini Pabbareddy">
+  <title>Magic 8 Ball</title>
+  <meta name="description" content="Magic Eight Ball">
+  <meta name="keywords" content="Magic, Eight, Ball">
+</head>
+  <style>
+    body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right, #4e54c8, #8f94fb);
+  color: #fff;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.container {
+  background: rgba(0,0,0,0.5);
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+input {
+  width: 80%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin: 10px 0;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 6px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #ff8c00;
+  color: #fff;
+  transition: transform 0.1s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#answer-box {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+}
+
+.hidden {
+  display: none;
+}
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🔮 Magic Eight Ball</h1>
+    <p>Ask a yes/no question and see what fate says!</p>
+    
+    <input type="text" id="question" placeholder="Type your question here...">
+    <button id="ask-btn">Shake the Eight Ball</button>
+    <button id="stop-btn">Stop Playing</button>
+
+    <div id="answer-box" class="hidden">
+      <h2>Your Answer:</h2>
+      <p id="answer"></p>
+    </div>
+  </div>
+
+  <script>
+const answers = [
+    //answers
+  "Yes, definitely.",
+  "No, absolutely not.",
+  "It is certain.",
+  "Ask again later.",
+  "Cannot predict now.",
+  "Most likely.",
+  "Very doubtful.",
+  "Signs point to yes."
+];
+
+const questionInput = document.getElementById('question');
+const askBtn = document.getElementById('ask-btn');
+const stopBtn = document.getElementById('stop-btn');
+const answerBox = document.getElementById('answer-box');
+const answerText = document.getElementById('answer');
+
+function getRandomAnswer() {
+  const randomIndex = Math.floor(Math.random() * answers.length);
+  return answers[randomIndex];
+}
+
+askBtn.addEventListener('click', () => {
+  const question = questionInput.value.trim();
+  if (!question) {
+    alert("Please ask a question before shaking the eight ball!");
+    return;
+  }
+  const response = getRandomAnswer();
+  answerText.textContent = response;
+  answerBox.classList.remove('hidden');
+  questionInput.value = '';
+});
+
+stopBtn.addEventListener('click', () => {
+  alert("Thanks for playing the Magic Eight Ball! Come back soon.");
+  answerBox.classList.add('hidden');
+  questionInput.value = '';
+});
+
+  </script>
+</body>
+</html>
