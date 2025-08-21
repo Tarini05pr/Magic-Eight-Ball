@@ -9,63 +9,48 @@
   <meta name="keywords" content="Magic, Eight, Ball">
 </head>
   <style>
-    body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(to right, #4e54c8, #8f94fb);
-  color: #fff;
-  text-align: center;
-  padding: 50px 20px;
-}
+  /* Basic page setup */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #000;
+    text-align: center;
+    padding: 40px;
+  }
 
-.container {
-  background: rgba(0,0,0,0.5);
-  padding: 30px;
-  border-radius: 12px;
-  max-width: 500px;
+  /* Container for the game */
+  .magic-8ball-container {
+     max-width: 400px;
   margin: 0 auto;
-}
+  }
 
-input {
-  width: 80%;
-  padding: 10px;
-  border-radius: 6px;
-  border: none;
-  margin: 10px 0;
-  font-size: 1rem;
-}
+  /* Input field for the question */
+  input[type="text"] {
+    width: 80%;
+    padding: 8px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+  }
 
-button {
-  padding: 10px 20px;
-  margin: 5px;
-  border-radius: 6px;
-  border: none;
-  font-size: 1rem;
-  cursor: pointer;
-  background-color: #ff8c00;
-  color: #fff;
-  transition: transform 0.1s ease;
-}
+  /* Button styling */
+  button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
 
-button:hover {
-  transform: scale(1.05);
-}
+  /* Answer display */
+  #answer {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+  }
+</style>
 
-#answer-box {
-  margin-top: 20px;
-  padding: 15px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 8px;
-}
-
-.hidden {
-  display: none;
-}
-
-  </style>
 </head>
 <body>
   <div class="container">
-    <h1>🔮 Magic Eight Ball</h1>
+    <h1>Magic Eight Ball</h1>
     <p>Ask a yes/no question and see what fate says!</p>
     
     <input type="text" id="question" placeholder="Type your question here...">
